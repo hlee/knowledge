@@ -1,3 +1,11 @@
+ ## change system date
+ 
+ 
+ sudo date -s "5/24/2016 09:42:00" 
+ 
+ 
+
+
 ## change the author of a commit in git
 
 #### Change all commits information
@@ -45,3 +53,45 @@ git filter-branch --index-filter \
   
 git filter-branch --tree-filter 'rm filename' HEAD  
 ```
+
+#### find and remove
+
+```ruby
+find . -name *.DS_Store -type f -exec git-rm {} \;
+```
+
+
+### git commit with different user
+
+```
+git commit --author="Name <email>" -m "whatever"
+```
+
+
+### only update the commit date
+
+
+
+```
+GIT_COMMITTER_DATE="`date`" git commit --amend --date "`date`"
+
+
+git commit --amend --date "Thu May 28 18:21:46 2015 +0530"
+```
+
+
+### commit with other user
+
+```
+
+
+git commit --author="Ken Lu <ken@ken.com>" -m "my commit"
+
+Override the commit author. Specify an explicit author using the standard A U Thor <author@example.com> 
+
+```
+
+
+
+
+[reference](http://stackoverflow.com/questions/454734/how-can-one-change-the-timestamp-of-an-old-commit-in-git)
